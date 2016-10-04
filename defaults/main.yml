@@ -19,8 +19,8 @@ limits_sysctl:
 - { name: 'net.ipv4.tcp_fin_timeout', value: '10' }
 - { name: 'net.ipv4.ip_nonlocal_bind', value: '1' }
 
-limits_hosts_allow: []
-limits_hosts_deny: []
+#limits_hosts_allow: []
+#limits_hosts_deny: []
 
 limits_sysctl_ignore: yes
 
