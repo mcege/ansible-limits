@@ -1,11 +1,5 @@
+#Default params for limits role
 ---
-
-limits_enabled: yes
-limits_path: /etc/security/limits.conf
-
-# See http://linux.die.net/man/5/limits.conf for description
-limits_limits:
-- "* - nofile 63536"
 
 limits_sysctl:
 - { name: 'net.ipv4.tcp_tw_recycle', value: '1' }
@@ -18,11 +12,3 @@ limits_sysctl:
 - { name: 'net.ipv4.tcp_max_tw_buckets', value: '2000000' }
 - { name: 'net.ipv4.tcp_fin_timeout', value: '10' }
 - { name: 'net.ipv4.ip_nonlocal_bind', value: '1' }
-
-#limits_hosts_allow: []
-#limits_hosts_deny: []
-
-limits_sysctl_ignore: yes
-
-#limits_pamd_files:
-#- "su"
