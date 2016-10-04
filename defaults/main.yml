@@ -5,7 +5,7 @@ limits_path: /etc/security/limits.conf
 
 # See http://linux.die.net/man/5/limits.conf for description
 limits_limits:
-- "*    -    nofile    63536"
+- "* - nofile 63536"
 
 limits_sysctl:
 - { name: 'net.ipv4.tcp_tw_recycle', value: '1' }
