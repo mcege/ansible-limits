@@ -8,7 +8,7 @@
   shell: ulimit -u 63536
 
 - name: Edit /etc/profile
-  lineinfile: dest=/etc/profile line=ulimit -u 63536
+  lineinfile: dest=/etc/profile line="ulimit -u 63536"
 
 - name: Source /etc/profile
   shell: source /etc/profile
