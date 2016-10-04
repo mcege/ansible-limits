@@ -19,3 +19,9 @@
 
 - name: Update hosts.deny
   template: src=hosts.deny.j2 dest=/etc/hosts.deny
+
+- name: Configure 90-nproc.conf
+  template: src=90-nproc.conf.j2 dest=/etc/security/limits.d/90-nproc.conf owner=root group=root mode=0644
+
+- name: Sysctl -p
+  shell: sysctl -p
