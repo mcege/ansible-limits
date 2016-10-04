@@ -1,11 +1,11 @@
 ---
 
 limits_enabled: yes
-limits_path: /etc/security/limits.d/tune.conf
+limits_path: /etc/security/limits.conf
 
 # See http://linux.die.net/man/5/limits.conf for description
 limits_limits:
-- "*    -    nofile    65535"
+- "*    -    nofile    63536"
 
 limits_sysctl_ignore: false
 

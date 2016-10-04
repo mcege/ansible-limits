@@ -9,4 +9,3 @@
   when: limits_enabled
   tags: [limits]
 
-- include: config.yml
