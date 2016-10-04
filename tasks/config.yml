@@ -4,7 +4,16 @@
 - name: Ulimit -n
   shell: ulimit -n 63536
 
-- name: Configure limits
+- name: Ulimit -u
+  shell: ulimit -u 63536
+
+- name: Edit /etc/profile
+  lineinfile: dest=/etc/profile line=ulimit -u 63536
+
+- name: Source /etc/profile
+  shell: source /etc/profile
+
+- name: Configure limits.conf
   template: src=limits.conf.j2 dest=/etc/security/limits.conf owner=root group=root mode=0644
 
 - name: Configure 90-nproc.conf
