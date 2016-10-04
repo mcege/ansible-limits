@@ -1,0 +1,8 @@
+# Configure limits.conf
+---
+
+- name: Modify limits.conf
+  lineinfile: dest=/etc/security/limits.conf line="* - nofile 63536"
+
+- name: Modify 90-nproc.conf
+  lineinfile: dest=/etc/security/limits.d/90-nproc.conf line="* soft nproc 63536"
