@@ -24,5 +24,7 @@ limits_sysctl:
 limits_hosts_allow: []
 limits_hosts_deny: []
 
-limits_pamd_files:
-- "su"
+limits_sysctl_ignore: yes
+
+#limits_pamd_files:
+#- "su"
