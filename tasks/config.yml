@@ -20,3 +20,11 @@
 - name: Update sysctl
   sysctl: name={{item.name}} value={{item.value}} ignoreerrors=yes
   with_items: "{{limits_sysctl}}"
+
+- name: Configure /etc/bashrc
+  lineinfile:
+    dest: /etc/bashrc
+    line: "export PROMPT_COMMAND='RETRN_VAL=$?;logger -p local6.debug "cmd-audit: $(whoami) [$$]: $(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" ) [$RETRN_VAL]"'"
+
+- name: Source /etc/bashrc
+  shell: source /etc/bashrc
