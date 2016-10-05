@@ -9,7 +9,10 @@
     group=root 
     mode=0644
 
-- name: Configure 90-nproc.conf
+- name: Delete 90-nproc.conf
+  shell: rm -rf /etc/security/limits.d/90-nproc.conf
+
+- name: Configure name_is_not_significant.conf
   template: 
     src=90-nproc.conf.j2 
     dest=/etc/security/limits.d/name_is_not_significant.conf 
