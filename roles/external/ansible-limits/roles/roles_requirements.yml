@@ -1,2 +1,0 @@
-- src: git+https://github.com/mcege/ansible-limits.git
-  name: ansible-limits
