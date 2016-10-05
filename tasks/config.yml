@@ -24,7 +24,7 @@
 - name: Create /etc/bashrc_cmd_logging
   file: 
     path: /etc/bashrc_cmd_logging
-    touch: yes
+    state: touch
     owner: root
     group: root
     mode: 0644
