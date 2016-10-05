@@ -33,7 +33,7 @@
   blockinfile:
     dest: /etc/bashrc_cmd_logging
     block: |
-      "export PROMPT_COMMAND='RETRN_VAL=$?;logger -p {{ sky_users_syslog_facility }}.debug "cmd-audit: $(whoami) [$$]: $(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" ) [$RETRN_VAL]"'"
+      export PROMPT_COMMAND='RETRN_VAL=$?;logger -p {{ sky_users_syslog_facility }}.debug "cmd-audit: $(whoami) [$$]: $(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" ) [$RETRN_VAL]"'
 
 - name: Configure /etc/bashrc
   blockinfile:
