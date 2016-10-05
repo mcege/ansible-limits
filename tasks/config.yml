@@ -21,14 +21,25 @@
   sysctl: name={{item.name}} value={{item.value}} ignoreerrors=yes
   with_items: "{{limits_sysctl}}"
 
+- name: Create /etc/bashrc_cmd_logging
+  file: 
+    path: /etc/bashrc_cmd_logging
+    touch: yes
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Configure /etc/bashrc_cmd_logging
+  blockinfile:
+    dest: /etc/bashrc_cmd_logging
+    block: |
+      "export PROMPT_COMMAND='RETRN_VAL=$?;logger -p {{ sky_users_syslog_facility }}.debug "cmd-audit: $(whoami) [$$]: $(history 1 | sed "s/^[ ]*[0-9]\+[ ]*//" ) [$RETRN_VAL]"'"
+
 - name: Configure /etc/bashrc
-  template:
-    src=bashrc.j2
-    dest=/etc/bashrc
-    owner=root
-    group=root
-    backup=yes
-    mode=0644
+  blockinfile:
+    dest: /etc/bashrc
+    block: |
+      . /etc/bashrc_cmd_logging
 
 - name: Source /etc/bashrc
   shell: source /etc/bashrc

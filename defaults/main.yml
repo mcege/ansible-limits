@@ -1,6 +1,8 @@
 #Default params for limits role
 ---
 
+sky_users_syslog_facility: local6
+
 limits_sysctl:
 - { name: 'net.ipv4.tcp_tw_recycle', value: '1' }
 - { name: 'net.ipv4.tcp_tw_reuse', value: '1' }
